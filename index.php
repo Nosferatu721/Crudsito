@@ -34,7 +34,7 @@ if (class_exists($nombreController)) {
     // Guardamos el accion
     $accion = $_GET['accion'];
     // Ejecutar peticion
-    // Utils::verify();
+    Utils::verify();
     $controller->$accion();
   } elseif (!isset($_GET['controlador']) && !isset($_GET['accion'])) {
     $actionDefault = actionDefault;

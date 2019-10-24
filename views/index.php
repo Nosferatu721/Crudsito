@@ -1,6 +1,8 @@
 <!-- Se llama el Header -->
 <?php require_once 'views/layout/header.php'; ?>
-<title>Asitad - Index</title>
+<style></style> 
+<title>Ciudades - Index</title>
+
 </head>
 
 <!-- El <body> solo se abre, el </body> esta en el FOOTER -->
