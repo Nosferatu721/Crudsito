@@ -58,8 +58,34 @@
 
     <?php else : ?>
       <!-- Formulario para Editar -->
-      <form action="<?= baseUrl ?>medicamento/actualizar&id=<?= $_GET['id'] ?>" method="POST">
-        
+      <form action="<?= baseUrl ?>ciudad/actualizar&id=<?= $_GET['id'] ?>" method="POST">
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" class="form-control" type="text" value="<?= $data->nombreCiudad ?>">
+          </div>
+          <div class="col-6">
+            <span>Clima</span><br>
+            <select class="custom-select mr-sm-2 mt-1" name="clima" id="clima">
+              <option>Elija...</option>
+              <?php $climas = CiudadController::GetClimas(); ?>
+              <?php while ($cl = $climas->fetch_object()) : ?>
+                <option value="<?= $cl->idClima; ?>" <?= $data->climaID == $cl->idClima ? 'selected' : '' ?>><?= $cl->nombreClima; ?></option>
+              <?php endwhile; ?>
+            </select>
+          </div>
+          <div class="col-6">
+            <span>País</span><br>
+            <select class="custom-select mr-sm-2 mt-1" name="pais" id="pais">
+              <option>Elija...</option>
+              <?php $paises = CiudadController::GetPais(); ?>
+              <?php while ($p = $paises->fetch_object()) : ?>
+                <option value="<?= $p->idPais; ?>" <?= $data->paisID == $p->idPais ? 'selected' : '' ?>><?= $p->nombrePais; ?></option>
+              <?php endwhile; ?>
+            </select>
+          </div>
+          <input type="submit" class="btn btn-primary btn-sm btn-block col-6 offset-3 my-3" value="Actualizar">
+        </div>
       </form>
     <?php endif; ?>
 

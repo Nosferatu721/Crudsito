@@ -12,6 +12,9 @@ class CiudadController
     // 
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
+      $c2 = new Ciudad();
+      $c2->setIdCiudad($id);
+      $data = $c2->findID();
       if ($id == '') {
         header('Location: ' . baseUrl . 'error/index');
       }
@@ -56,35 +59,27 @@ class CiudadController
 
   public function actualizar()
   {
-    if (isset($_POST) && $_POST['nombre']  && $_POST['descripcion'] && $_POST['unidades'] && $_POST['tipo'] && $_POST['estado'] && $_POST['laboratorio'] && $_POST['fecha']) {
+    if (isset($_POST) && $_GET['id'] && $_POST['nombre'] && $_POST['pais'] && $_POST['clima']) {
       // Guardar los datos en variables
       $id = $_GET['id'];
       $nombre = $_POST['nombre'];
-      $descripcion = $_POST['descripcion'];
-      $unidades = $_POST['unidades'];
-      $tipo = $_POST['tipo'];
-      $estado = $_POST['estado'];
-      $laboratorio = $_POST['laboratorio'];
-      $fecha = $_POST['fecha'];
+      $pais = $_POST['pais'];
+      $clima = $_POST['clima'];
       // Instanciar un Objecto Medicamento
-      $m = new Medicamento();
+      $c = new Ciudad();
       // Guardar los datos en el Objeto User
-      $m->setId($id);
-      $m->setNombre($nombre);
-      $m->setDescripcion($descripcion);
-      $m->setUnidades($unidades);
-      $m->setTipo($tipo);
-      $m->setEstado($estado);
-      $m->setLaboratorio($laboratorio);
-      $m->setFechaVen($fecha);
+      $c->setIdCiudad($id);
+      $c->setNombreCiudad($nombre);
+      $c->setPaisID($pais);
+      $c->setClimaID($clima);
       // Ejecutar el metodo para registrar
-      $r = $m->update();
+      $r = $c->update();
       if ($r) {
         $_SESSION['actualizado'] = true;
-        header('Location: ' . baseUrl . 'medicamento/gestion');
+        header('Location: ' . baseUrl . 'ciudad/gestion');
       }
     } else {
-      header('Location: ' . baseUrl . 'medicamento/gestion');
+      header('Location: ' . baseUrl . 'ciudad/gestion');
     }
   }
 

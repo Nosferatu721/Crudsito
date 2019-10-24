@@ -78,17 +78,10 @@ class Ciudad
 
   public function findID()
   {
-    $sql = "SELECT * FROM medicamentos INNER JOIN tipomedicamento ON medicamentos.tipoMedicamento = tipomedicamento.idTipoMedicamento WHERE idMedicamentos={$this->getId()}";
+    $sql = "SELECT * FROM ciudad WHERE idCiudad={$this->getIdCiudad()}";
     $finded = $this->db->query($sql);
     return $finded->fetch_object();
     // El fetch_object() es para pasar los datos a un Objeto 'SOLO SE USA CUANDO ES UN REGISTRO'
-  }
-
-  public function findAllTiposM()
-  {
-    $sql = "SELECT * FROM tipomedicamento";
-    $finded = $this->db->query($sql);
-    return $finded;
   }
 
   public function save()
@@ -100,7 +93,7 @@ class Ciudad
 
   public function update()
   {
-    $sql = "UPDATE medicamentos SET fechaVencimiento='{$this->getFechaVen()}', laboratorio='{$this->getLaboratorio()}', tipoMedicamento='{$this->getTipo()}', nombreMedicamento='{$this->getNombre()}', descripcionMedicamento='{$this->getDescripcion()}', estado='{$this->getEstado()}', unidades='{$this->getUnidades()}' WHERE idMedicamentos={$this->getId()}";
+    $sql = "UPDATE ciudad SET nombreCiudad='{$this->getNombreCiudad()}', paisID='{$this->getPaisID()}', climaID='{$this->getClimaID()}' WHERE idCiudad={$this->getIdCiudad()}";
     $updated = $this->db->query($sql);
     return $updated;
   }
