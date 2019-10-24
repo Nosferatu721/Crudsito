@@ -1,6 +1,6 @@
 <!-- Se llama el Header -->
 <?php require_once 'views/layout/header.php'; ?>
-<title>Camilo Pendejo - Login</title>
+<title>Camilo Pendejo y elkin mas - Login</title>
 </head>
 
 <!-- El <body> solo se abre, el </body> esta en el FOOTER -->
