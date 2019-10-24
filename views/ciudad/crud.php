@@ -1,6 +1,7 @@
 <!-- Se llama el Header -->
 <?php require_once 'views/layout/header.php'; ?>
 <title>Ciudad - Registro</title>
+<link rel="stylesheet" type="text/css" href="<?= baseUrl; ?>assets/Datatables/datatables.min.css">
 </head>
 
 <!-- El <body> solo se abre, el </body> esta en el FOOTER -->
@@ -91,8 +92,8 @@
 
     <!-- Tabla -->
 
-    <table class="table table-responsive-lg">
-      <thead>
+    <table id="papitas" class="table table-responsive-lg table-bordered table-hover">
+      <thead class="bg-dark">
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Clima</th>
@@ -109,8 +110,8 @@
             <td><?= $c->nombrePais ?></td>
             <td><?= $c->fecha ?></td>
             <td class="d-flex justify-content-around">
-              <a href="<?= baseUrl ?>ciudad/eliminar&id=<?= $c->idCiudad ?>" class="btn btn-danger">Eliminar</a>
-              <a href="<?= baseUrl ?>ciudad/gestion&id=<?= $c->idCiudad ?>" class="btn btn-info">Editar</a>
+              <a href="<?= baseUrl ?>ciudad/eliminar&id=<?= $c->idCiudad ?>" class="btn btn-danger btn-sm">Eliminar</a>
+              <a href="<?= baseUrl ?>ciudad/gestion&id=<?= $c->idCiudad ?>" class="btn btn-info btn-sm">Editar</a>
             </td>
           </tr>
         <?php endwhile ?>
@@ -118,6 +119,5 @@
     </table>
 
   </div>
-
   <!-- Se llama el footer -->
   <?php require_once 'views/layout/footer.php'; ?>

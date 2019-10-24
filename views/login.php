@@ -14,9 +14,9 @@
       <form action="<?= baseUrl ?>user/logear" method="POST" class="col-md-6 col-sm-12">
         <h1 class="text-center">Ingresa</h1>
         <?php if (isset($_SESSION['registrado'])) : ?>
-        <h5 class="text-primary text-center">Registrado</h5>
+          <h5 class="text-primary text-center">Registrado</h5>
         <?php else : ?>
-        <hr class="border-primary">
+          <hr class="border-primary">
         <?php endif ?>
         <?= Utils::deleteSession('registrado') ?>
         <div class="form-group">
