@@ -30,8 +30,8 @@
         <!-- Formulario De Registro -->
         <?php if (!isset($_GET['id'])) : ?>
           <form action="<?= baseUrl ?>ciudad/registrar" method="POST">
-          <h2>Registro</h2>
-          <hr>
+            <h2>Registro</h2>
+            <hr>
             <div class="row">
               <div class="form-group col-12">
                 <label for="nombre">Nombre</label>
@@ -113,8 +113,29 @@
                 <td><?= $c->nombrePais ?></td>
                 <td><?= $c->fecha ?></td>
                 <td class="d-flex justify-content-around">
-                  <a href="<?= baseUrl ?>ciudad/eliminar&id=<?= $c->idCiudad ?>" class="btn btn-danger btn-sm">Eliminar</a>
                   <a href="<?= baseUrl ?>ciudad/gestion&id=<?= $c->idCiudad ?>" class="btn btn-info btn-sm">Editar</a>
+                  <!-- Boton Eliminar -->
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target=".modal<?= $c->idCiudad ?>"> Eliminar </button>
+                  <!-- Modal Eliminar -->
+                  <div class="modal fade modal<?= $c->idCiudad ?>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Advertencia</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Desea eliminar la ciudad?
+                        </div>
+                        <div class="modal-footer p-2">
+                          <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Cancelar</button>
+                          <a href="<?= baseUrl; ?>ciudad/eliminar&id=<?= $c->idCiudad; ?>" class="btn btn-outline-danger btn-sm"> Eliminar </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </tr>
             <?php endwhile ?>
