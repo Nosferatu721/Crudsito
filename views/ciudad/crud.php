@@ -12,22 +12,24 @@
   <div class="container mt-4">
     <?php require_once 'views/layout/banner.php'; ?>
 
-    <?php if (isset($_SESSION['registrado'])) : ?>
-      <h5 class="text-success text-center pt-3">Registrado</h5>
-    <?php elseif (isset($_SESSION['actualizado'])) : ?>
-      <h5 class="text-info text-center pt-3">Actualizado</h5>
-    <?php elseif (isset($_SESSION['eliminado'])) : ?>
+    <?php if (isset($_SESSION['eliminado'])) : ?>
       <h5 class="text-warning text-center pt-3">Eliminado</h5>
     <?php else : ?>
       <hr class="border-dark">
     <?php endif ?>
-    <?= Utils::deleteSession('registrado') ?>
-    <?= Utils::deleteSession('actualizado') ?>
-    <?= Utils::deleteSession('eliminado') ?>
 
     <div class="row">
       <div class="col-3">
         <!-- Formulario De Registro -->
+        <?php if (isset($_SESSION['registrado'])) : ?>
+          <h5 class="text-success text-center">Registrado</h5>
+        <?php elseif (isset($_SESSION['actualizado'])) : ?>
+          <h5 class="text-info text-center">Actualizado</h5>
+        <?php elseif (isset($_SESSION['exist'])) : ?>
+          <h5 class="text-dark text-center bg-danger py-1">Ya Existe</h5>
+        <?php else : ?>
+          <hr>
+        <?php endif ?>
         <?php if (!isset($_GET['id'])) : ?>
           <form action="<?= baseUrl ?>ciudad/registrar" method="POST">
             <h2>Registro</h2>
@@ -145,10 +147,12 @@
         </table>
       </div>
     </div>
-
-
-
-
   </div>
+
+  <?= Utils::deleteSession('registrado') ?>
+  <?= Utils::deleteSession('actualizado') ?>
+  <?= Utils::deleteSession('exist') ?>
+  <?= Utils::deleteSession('eliminado') ?>
+
   <!-- Se llama el footer -->
   <?php require_once 'views/layout/footer.php'; ?>

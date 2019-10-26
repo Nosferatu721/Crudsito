@@ -83,6 +83,14 @@ class Ciudad
     return $finded->fetch_object();
     // El fetch_object() es para pasar los datos a un Objeto 'SOLO SE USA CUANDO ES UN REGISTRO'
   }
+  
+  public function findNombreCiudad()
+  {
+    $sql = "SELECT * FROM ciudad WHERE nombreCiudad = '{$this->getNombreCiudad()}'";
+    $finded = $this->db->query($sql);
+    return $finded;
+    // El fetch_object() es para pasar los datos a un Objeto 'SOLO SE USA CUANDO ES UN REGISTRO'
+  }
 
   public function save()
   {
