@@ -59,7 +59,7 @@
                   <?php endwhile; ?>
                 </select>
               </div>
-              <input type="submit" class="btn btn-primary btn-sm btn-block col-6 offset-3 my-3" value="Registrar">
+              <input type="submit" class="btn btn-primary btn-sm btn-block col-6 offset-3 my-3" id="enviar" value="Registrar">
             </div>
           </form>
         <?php else : ?>
@@ -92,7 +92,7 @@
                   <?php endwhile; ?>
                 </select>
               </div>
-              <input type="submit" class="btn btn-primary btn-sm btn-block col-6 offset-3 my-3" value="Actualizar">
+              <input type="submit" class="btn btn-primary btn-sm btn-block col-6 offset-3 my-3" id="enviar" value="Actualizar">
             </div>
           </form>
         <?php endif; ?>
@@ -153,6 +153,8 @@
   <?= Utils::deleteSession('actualizado') ?>
   <?= Utils::deleteSession('exist') ?>
   <?= Utils::deleteSession('eliminado') ?>
+
+  <script src="<?= baseUrl ?>assets/js/validacion.js"></script>
 
   <!-- Se llama el footer -->
   <?php require_once 'views/layout/footer.php'; ?>
