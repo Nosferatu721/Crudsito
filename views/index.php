@@ -8,10 +8,10 @@
 <!-- El <body> solo se abre, el </body> esta en el FOOTER -->
 
 <body>
-
-  <!-- Aqui va el Contenido de la Pagina -->
   <div class="container mt-4">
     <?php require_once 'views/layout/banner.php'; ?>
+    <!-- Aqui va el Contenido de la Pagina -->
+    
   </div>
 
   <!-- Se llama el footer -->

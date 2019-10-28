@@ -24,7 +24,9 @@ class UserController
       if ($userFind) {
         if ($userFind->password == $contraseña) {
           $_SESSION['userLog'] = $userFind;
-          header('Location: ' . baseUrl . 'user/index');
+          header('Location: ' . baseUrl . 'ciudad/gestion');
+          
+          // Aqui se redirecciona con el boton de ingreso con 'ciudad/ gestión'
         } else {
           $_SESSION['login'] = 'ContraPaila';
           header('Location: ' . baseUrl);
