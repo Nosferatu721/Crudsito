@@ -5,19 +5,12 @@
 </head>
 
 <!-- El <body> solo se abre, el </body> esta en el FOOTER -->
-
 <body>
 
   <!-- Aqui va el Contenido de la Pagina -->
   <div class="container mt-4">
     <?php require_once 'views/layout/banner.php'; ?>
-
-    <?php if (isset($_SESSION['eliminado'])) : ?>
-      <h5 class="text-warning text-center pt-3">Eliminado</h5>
-    <?php else : ?>
-      <hr class="border-dark">
-    <?php endif ?>
-
+    <hr>
     <div class="row">
       <div class="col-3">
         <!-- Formulario De Registro -->
@@ -27,6 +20,8 @@
           <h5 class="text-info text-center">Actualizado</h5>
         <?php elseif (isset($_SESSION['exist'])) : ?>
           <h5 class="text-dark text-center bg-danger py-1">Ya Existe</h5>
+        <?php elseif (isset($_SESSION['eliminado'])) : ?>
+          <h5 class="text-warning text-center pt-3">Eliminado</h5>
         <?php else : ?>
           <hr>
         <?php endif ?>

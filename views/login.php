@@ -28,7 +28,7 @@
           <input id="contraseña" name="contraseña" class="form-control" type="password">
         </div>
         <div class="text-center">
-          <input type="submit" class="btn btn-outline-info col-6" value="Ingresar">
+          <input type="submit" class="btn btn-outline-dark col-6" value="Ingresar">
           <hr>
         </div>
       </form>
